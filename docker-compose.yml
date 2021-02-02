@@ -1,0 +1,19 @@
+version: "3"
+services:
+  db:
+    image: "postgres:11"
+    container_name: "my_postgres"
+    ports:
+      - "5432:5432"
+    volumes:
+      - my_dbdata:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:5050"
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=fibanez@fibanez.com
+      - PGADMIN_DEFAULT_PASSWORD=fibanez
+      - PGADMIN_LISTEN_PORT=5050
+volumes:
+  my_dbdata:
