@@ -26,3 +26,10 @@ Run application
   ```
   ./go-dbexporter -h
   ```
+Configure PgAdmin:
+ ```
+ host: host.docker.internal
+ database: postgres
+ user: fibanez@fibanez.com
+ password: fibanez
+ ```
