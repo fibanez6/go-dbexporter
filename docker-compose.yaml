@@ -5,8 +5,12 @@ services:
     container_name: "my_postgres"
     ports:
       - "5432:5432"
+    environment:
+      - POSTGRES_USER=fibanez
+      - POSTGRES_PASSWORD=fibanez
     volumes:
       - my_dbdata:/var/lib/postgresql/data
+    restart: unless-stopped
   pgadmin:
     image: dpage/pgadmin4
     ports:
@@ -15,5 +19,6 @@ services:
       - PGADMIN_DEFAULT_EMAIL=fibanez@fibanez.com
       - PGADMIN_DEFAULT_PASSWORD=fibanez
       - PGADMIN_LISTEN_PORT=5050
+    restart: unless-stopped
 volumes:
   my_dbdata:
